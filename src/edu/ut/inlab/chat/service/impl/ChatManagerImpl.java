@@ -87,4 +87,14 @@ public class ChatManagerImpl implements ChatManager {
 		}
 		return myConnection;
 	}
+
+	@Override
+	public boolean clearMessege(String id) {
+		ChatConnection connection=findConnection(id);
+		if (connection==null){
+			return false;
+		}
+		connection.setMessages(null);
+		return true;
+	}
 }

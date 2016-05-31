@@ -56,13 +56,30 @@ $(document).ready(function() {
 
 	$("#refresh-content").click(function() {
 		ChatManager.getConnection(connectionId, function(connection) {
-
 			var messages=connection.messages;
+			if (messages==null||messages.length==0){
+				return;
+			}
 			var html="";
-			for(var i=messages.length; i>=0; i--) {
+			for(var i=messages.length-1; i>=0; i--) {
 				html+=messages[i]+"<br>";
 			}
 			$("#chat-content").html(html);
 		});
+	});
+	
+	$("#clear-messege").click(function() {
+		$.messager.confirm("Warning","Are you sure to clear?", function() {
+			ChatManager.clearMessege(connectionId, function(success) {
+				if(success){
+					$.messager.popup("Message is Cleared!");
+					$("#chat-content").html("");
+				}else {
+					$.messager.popup("Failed to Clear!");
+				}
+					
+			});
+		});
+		
 	});
 });
