@@ -7,6 +7,9 @@
 		<create creator="spring" javascript="ChatManager"> 
 			<param name="beanName" value="chatManager"/>
 		</create>
+		<create creator="spring" javascript="NotificationManager"> 
+			<param name="beanName" value="notificationManager"/>
+		</create>
 		
 		<convert converter="bean" match="edu.ut.inlab.chat.bean.ChatConnection"/>
 	</allow>

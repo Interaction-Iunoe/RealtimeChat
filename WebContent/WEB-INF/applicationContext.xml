@@ -11,5 +11,6 @@
 	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<bean id="chatManager" class="edu.ut.inlab.chat.service.impl.ChatManagerImpl"></bean>
+	<bean id="notificationManager" class="edu.ut.inlab.chat.service.impl.NotificationManagerImpl"></bean>
 	
 </beans>
